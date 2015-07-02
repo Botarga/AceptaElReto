@@ -22,7 +22,7 @@ public class SerpienteYEscaleras {
         
         while(!terminado){
             terminado = true;
-            
+            System.out.println("Introduce datos");
             //Leer primera entrada de datos
             for(byte i = 0; i < 4; i++){
                 datos[i] = in.nextShort();
