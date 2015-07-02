@@ -47,14 +47,14 @@ public class SerpienteYEscaleras {
                     escalera[i][0] = in.nextShort();
                     escalera[i][1] = in.nextShort();
                 }
-                
+                System.out.println("datos leidos");
                 //Inicializar y comenzamos a calcular movimienos
                 casillaActual = 1;
                 terminadoMeta = false;
                 movimientos = 0;
                 
                 while(!terminadoMeta){
-                    if(casillaActual == datos[0] * datos[0])
+                    if(casillaActual >= datos[0] * datos[0])
                         break;
                     //Elegir mejor escalera en rango de tiro
                     mejorImpulso = mejorEscalera = -1;
@@ -88,7 +88,7 @@ public class SerpienteYEscaleras {
                         }
                     }
                 }
-                
+                System.out.println("Salida");
                 System.out.println(movimientos);
                 
             }
