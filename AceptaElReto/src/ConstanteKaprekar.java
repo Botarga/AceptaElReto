@@ -1,5 +1,6 @@
 import java.io.*;
 import static java.lang.System.*;
+import java.util.Arrays;
 
 public class ConstanteKaprekar 
 {
@@ -8,14 +9,16 @@ public class ConstanteKaprekar
         BufferedReader in =
                 new BufferedReader(new InputStreamReader(System.in));
         int casos;
-        int numero, iteraciones;
+        int maximo, minimo, iteraciones;
         boolean repDigit;
         String cadena;
+        char auxSwap;
         
         casos = Integer.parseInt(in.readLine());
         
         for(int i = 0; i < casos; i++)
         {
+            out.println("Iteracion: " + (i+1));
             repDigit = false;
             iteraciones = 0; 
             cadena = in.readLine();
@@ -43,6 +46,43 @@ public class ConstanteKaprekar
                 else
                 {
                     
+                    //Generar mínimo
+                    char[] c = cadena.toCharArray();
+                                       
+                    for(int j = 0; j < 3; j++)
+                    {
+                        for(int k = j+1; k < 4; k++)
+                        {
+                            if(Character.compare(c[j], c[k]) > 0)
+                            {
+                                auxSwap = c[j];
+                                c[j] = c[k];
+                                c[k] = auxSwap;
+                            }
+                        }
+                    }
+                    
+                    out.println("El array esta asi " + c.toString());
+                    minimo = Integer.parseInt(new String(c.toString()));
+                    
+                    //Generar máximo
+                    for(int j = 0; j < 3; j++)
+                    {
+                        for(int k = j+1; k < 4; k++)
+                        {
+                            if(Character.compare(c[j], c[k]) < 0)
+                            {
+                                auxSwap = c[j];
+                                c[j] = c[k];
+                                c[k] = auxSwap;
+                            }
+                        }
+                    }
+                    maximo = Integer.parseInt(c.toString());
+                    
+                    
+                    out.println("El minimo es " + minimo);
+                    out.println("El maximo es " + maximo);
                 }
                 
             }
